@@ -1,4 +1,4 @@
-import { Faq } from "./component/faq"
+import { Faq } from "./component/Faq"
 
 export default function FagPage() {
     return (
