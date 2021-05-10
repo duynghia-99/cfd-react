@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 
-let emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-    phonePattern = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i,
-    urlPattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i
+let emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+let   phonePattern = /(84|0[3|5|7|8|9])+([0-9]{8})\b/i;
+let     urlPattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i
 
 export default function useFormValidate(initialForm, validate){
     let [form, setForm] = useState(initialForm)
@@ -29,14 +29,16 @@ export default function useFormValidate(initialForm, validate){
             if(r.required && !form[i]?.trim()){
                 errorObj[i] = m.required || 'Truong nay khong dc de trong'
             }
-            if(r.pattern && !form[i]){
+            if(r.pattern && form[i]){
                 let { pattern } = r
-                if(pattern === 'email') pattern = emailPattern
-                if(pattern === 'phone') pattern = phonePattern
-                if(pattern === 'url') pattern = urlPattern
+                console.log(pattern)
+            
+                if(pattern === 'email'){ pattern = emailPattern}
+                if(pattern === 'phone'){ pattern = phonePattern}
+                if(pattern === 'url'){ pattern = urlPattern}
                 
                 if(pattern?.test(form[i])){
-                    errorObj[i] = m.pattern || 'Truong nay khong dung dinh dang'
+                    errorObj[i] = m[i].pattern || 'Truong nay khong dung dinh dang'
                 }
             }
         }

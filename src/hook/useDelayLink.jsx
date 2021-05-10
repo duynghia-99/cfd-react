@@ -13,5 +13,5 @@ export default function useDelayLink () {
 
     //     document.body.classList.remove('menu-is-show')
     // }
-    return delayLink
+    // return delayLink
 }
