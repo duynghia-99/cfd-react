@@ -8,15 +8,10 @@ import {TabInfo} from "./component/TabInfo";
 
 export default function Profile() {
 
-    let [tabActive, setTabActive] = useState(0)
+    let { url  } = useRouteMatch()
+    console.log(url )
 
-    let { path } = useRouteMatch()
-
-    function setTab(e, index){
-        e.preventDefault();
-        setTabActive(index)
-    }
-
+    
     return (
         <main className="profile" id="main">
             <section>
@@ -32,18 +27,18 @@ export default function Profile() {
                 <div className="container">
                     <div className="tab">
                         <div className="tab-title">
-                            <NavLink exact to={`${path}`}>Thông tin tài khoản</NavLink>
-                            <NavLink to={`${path}/course`}>Khóa học của bạn</NavLink>
-                            <NavLink to={`${path}/project`}>Dự án đã làm</NavLink>
-                            <NavLink to={`${path}/payment`}>Lịch sử thanh toán</NavLink>
-                            <NavLink to={`${path}/coin`}>Quản lý COIN của tôi</NavLink>
+                            <NavLink exact to={`${url}/`}>Thông tin tài khoản</NavLink>
+                            <NavLink to={`${url}/course`}>Khóa học của bạn</NavLink>
+                            <NavLink to={`${url}/project`}>Dự án đã làm</NavLink>
+                            <NavLink to={`${url}/payment`}>Lịch sử thanh toán</NavLink>
+                            <NavLink to={`${url}/coin`}>Quản lý COIN của tôi</NavLink>
                         </div>
                         <div className="tab-content">
                             <Switch>
-                                <Route path={`${path}/course`} component={TabCourse}/>
-                                <Route path={`${path}/project`} component={TabProject}/>
-                                <Route path={`${path}/payment`} component={TabPayment}/>
-                                <Route path={`${path}/coin`} component={TabCoin}/>
+                                <Route url ={`${url}/course`} component={TabCourse}/>
+                                <Route url ={`${url}/project`} component={TabProject}/>
+                                <Route url ={`${url}/payment`} component={TabPayment}/>
+                                <Route url ={`${url}/coin`} component={TabCoin}/>
                                 <Route component={TabInfo}/>
                             </Switch>
                         </div>

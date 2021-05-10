@@ -39,7 +39,7 @@ export default function Cooperate() {
                 required: 'Ho va ten khong duoc de trong'
             },
             phone: {
-                required: 'So dien thoai khong dung',
+                required: 'So dien thoai bat ',
                 pattern: 'Phai la so vietnam'
             },
             website: {

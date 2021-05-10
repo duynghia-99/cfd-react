@@ -130,21 +130,21 @@ function homePage() {
     // });
 }
 
-function profilePage() {
-    function profileTabClick() {
-        $('.profile .tab-title a').on('click', function (e) {
-            e.preventDefault();
-            let i = $(this).index();
-            $(this).addClass('active').siblings().removeClass('active');
-            $('.profile .tab-content > *:eq(' + i + ')').css({
-                display: 'block'
-            }).siblings().css({
-                display: 'none'
-            })
-        })
-    }
-    profileTabClick();
-}
+// function profilePage() {
+//     function profileTabClick() {
+//         $('.profile .tab-title a').on('click', function (e) {
+//             e.preventDefault();
+//             let i = $(this).index();
+//             $(this).addClass('active').siblings().removeClass('active');
+//             $('.profile .tab-content > *:eq(' + i + ')').css({
+//                 display: 'block'
+//             }).siblings().css({
+//                 display: 'none'
+//             })
+//         })
+//     }
+//     profileTabClick();
+// }
 
 function courseDetailAccordion() {
     $('.accordion .accordion__title').on('click', function (e) {

@@ -31,14 +31,13 @@ export default function useFormValidate(initialForm, validate){
             }
             if(r.pattern && form[i]){
                 let { pattern } = r
-                console.log(pattern)
             
                 if(pattern === 'email'){ pattern = emailPattern}
-                if(pattern === 'phone'){ pattern = phonePattern}
+                if(pattern === 'phone'){ pattern = phonePattern ;console.log(pattern);}
                 if(pattern === 'url'){ pattern = urlPattern}
                 
-                if(pattern?.test(form[i])){
-                    errorObj[i] = m[i].pattern || 'Truong nay khong dung dinh dang'
+                if(!pattern?.test(form[i])){
+                    errorObj[i] = m?.pattern || 'Truong nay khong dung dinh dang'
                 }
             }
         }
